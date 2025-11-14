@@ -1,0 +1,59 @@
+Given the following matrix operation:
+
+C=A×B×Bt+At×A
+
+where:
+
+A
+and B
+are square matrices of doubles of size N x N
+
+A
+is an upper triangular matrix
+
+At
+is the transpose of A
+and Bt
+is the transpose of B
+
+×
+is the multiplication operation
+
++
+is the addition operation
+
+We want to implement the above operation in C/C++ in 3 ways:
+
+blas - a variant that uses one or more functions from BLAS Atlas to perform the multiplication and addition operations.
+neopt - a “handmade” variant without improvements.
+opt_m - an improved variant of the neopt version. The improvement exclusively considers modifying the code to obtain better performance.
+
+Each of the 3 implementations above will take into account the fact that A is an upper triangular matrix.
+Running and testing
+To test the theme, you are provided with a code skeleton that you must complete with the implementations of the 3 variants mentioned above. The code skeleton is structured as follows:
+
+main.c - contains the main function, as well as other functions used to read the file with the test description, write the result matrix to a file, generate input data and run a test. This file will be overwritten during correction and should not be modified.
+utils.h - header file. This file will be overwritten during correction and should not be modified.
+solver_blas.c - in this file you must add the implementation of the blas variant.
+solver_neopt.c - in this file you must add the implementation of the neopt variant.
+solver_opt.c - in this file you must add the implementation of the opt_m variant.
+Makefile - Makefile used when compiling with gcc.
+compare.c - utility that can be used to compare two result files. This file will be overwritten during the correction and should not be modified.
+
+You can make any changes to the code skeleton except for the 3 files mentioned above.
+After running the make command with any of the 2 Makefiles, 3 binary files will result, tema2_blas, tema2_neopt and tema2_opt_m corresponding to the 3 variants that must be implemented.
+
+The execution will be done as follows:
+./tema2_<mod> input
+where:
+
+mod is one of the modes blas, neopt, opt_m
+input is the file containing the description of the tests.
+
+The input file is structured as follows:
+
+on the first line the number of tests.
+on the following lines the description of each test:
+the value of N.
+the seed used to generate the data.
+the path to the output file containing the resulting matrix.
